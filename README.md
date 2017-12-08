@@ -1,5 +1,3 @@
-# Koa 2 Restful Boilerplate [![Circle CI](https://circleci.com/gh/jsnomad/koa-restful-boilerplate.svg?style=svg)](https://circleci.com/gh/jsnomad/koa-restful-boilerplate)
-
 ## Description
 Koa 2 RESTful API using :
 
@@ -13,6 +11,15 @@ Install dependencies
 ```
 npm install
 ```
+
+安装 mongodb
+
+运行数据库： 
+```
+D:\MongoDB\Server\3.4\bin>mongod --dbpath=E:\gitpro\official-website\official-website-api\db --port=27017
+```
+
+安装 robomongo （数据库客户端）
 
 Start a Local Server
 ```
