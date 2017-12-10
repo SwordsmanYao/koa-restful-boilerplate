@@ -1,13 +1,13 @@
-import app from '../server/';
 import supertest from 'supertest';
 import { expect, should } from 'chai';
+import app from '../server';
 
 const temp = {};
 const request = supertest.agent(app.listen());
 should();
 
 describe('POST api/authenticate', () => {
-  it('should get all cities', done => {
+  it('should get the token', done => {
     request
       .post('/api/authenticate')
       .set('Accept', 'application/json')
@@ -17,26 +17,20 @@ describe('POST api/authenticate', () => {
       .expect(200, (err, res) => {
         temp.token = res.body.token;
         done();
-      });
+      })
   });
 });
 
-describe('POST /user', () => {
-  it('should add a user', done => {
+describe('GET /user', () => {
+  it('should get all user', done => {
     request
-      .post('/api/user')
-      .set('Accept', 'application/json')
+      .get('/api/user')
       .set('Authorization', `Bearer ${temp.token}`)
       .set('Accept', 'application/json')
-      .send({
-        LoginName: 'Bangkok',
-        name: 'Thailand',
-        sex: 1
-      })
       .expect(200, (err, res) => {
-        temp.idUser = res.body._id;
+        console.log(res);
+        expect(res.body.length).to.be.at.least(1);
         done();
       });
   });
 });
-

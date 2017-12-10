@@ -1,6 +1,6 @@
-import app from '../server/';
 import supertest from 'supertest';
 import { expect, should } from 'chai';
+import app from '../server/';
 
 const temp = {};
 const request = supertest.agent(app.listen());

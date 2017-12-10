@@ -3,6 +3,7 @@ import Koa from 'koa';
 import logger from 'koa-logger';
 import mongoose from 'mongoose';
 import helmet from 'koa-helmet';
+import cors from 'koa2-cors';
 import routing from './routes/';
 import { port, connexionString } from './config';
 
@@ -15,7 +16,8 @@ const app = new Koa();
 app
   .use(logger())
   .use(bodyParser())
-  .use(helmet());
+  .use(helmet())
+  .use(cors);
 
 routing(app);
 
