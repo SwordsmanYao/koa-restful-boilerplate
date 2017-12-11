@@ -28,8 +28,26 @@ describe('GET /user', () => {
       .set('Authorization', `Bearer ${temp.token}`)
       .set('Accept', 'application/json')
       .expect(200, (err, res) => {
-        console.log(res);
         expect(res.body.length).to.be.at.least(1);
+        done();
+      });
+  });
+});
+
+describe('POST /user', () => {
+  it('should add a user', done => {
+    request
+      .post('/api/user')
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${temp.token}`)
+      .set('Accept', 'application/json')
+      .send({
+        LoginName: 'yao',
+        name: 'yaojian',
+        sex: 1
+      })
+      .expect(200, (err, res) => {
+        temp.idCity = res.body._id;
         done();
       });
   });

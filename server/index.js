@@ -17,7 +17,7 @@ app
   .use(logger())
   .use(bodyParser())
   .use(helmet())
-  .use(cors);
+  .use(cors());
 
 routing(app);
 

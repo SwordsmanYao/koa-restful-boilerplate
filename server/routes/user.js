@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import Router from 'koa-router';
 import { baseApi } from '../config';
-import jwt from '../middlewares/jwt';
+// import jwt from '../middlewares/jwt';
 import UserController from '../controllers/user';
 
 const api = 'user';
@@ -15,19 +15,23 @@ router.get('/', UserController.find);
 
 // POST /api/user
 // This route is protected, call POST /api/authenticate to get the token
-router.post('/', jwt, UserController.add);
+// router.post('/', jwt, UserController.add);
+router.post('/', UserController.add);
 
 // GET /api/user/id
 // This route is protected, call POST /api/authenticate to get the token
-router.get('/:id', jwt, UserController.findById);
+// router.get('/:id', jwt, UserController.findById);
+router.get('/:id', UserController.findById);
 
 // PUT /api/user/id
 // This route is protected, call POST /api/authenticate to get the token
-router.put('/:id', jwt, UserController.update);
+// router.put('/:id', jwt, UserController.update);
+router.put('/:id', UserController.update);
 
 // DELETE /api/user/id
 // This route is protected, call POST /api/authenticate to get the token
-router.delete('/:id', jwt, UserController.delete);
+// router.delete('/:id', jwt, UserController.delete);
+router.delete('/:id', UserController.delete);
 
 export default router;
 
