@@ -36,6 +36,7 @@ class UserController {
     */
    async add(ctx) {
      try {
+       console.log(ctx.request.body);
        const user = await new User(ctx.request.body).save();
        ctx.body = user;
      } catch (err) {
