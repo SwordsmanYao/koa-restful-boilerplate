@@ -6,6 +6,8 @@ class UserController {
    /**
     * 查询所有用户
     * @param {ctx} Koa Context
+    * PageSize CurrentPage OrderField IsDesc
+    * Count
     */
    async find(ctx) {
      ctx.body = await User.find();
